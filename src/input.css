@@ -1,0 +1,299 @@
+
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Dana";
+    src: local("Dana"), url("/public/fonts/Dana/woff2/DanaFaNum-Regular.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+
+    font-family: "Dana-Medium";
+    src: local("Dana-Medium"), url("/public/fonts/Dana/woff2/DanaFaNum-Medium.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+
+    font-family: "Dana-DemiBold";
+    src: local("Dana-DemiBold"), url("/public/fonts/Dana/woff2/DanaFaNum-DemiBold.woff2") format("woff2");
+    font-display: swap;
+
+}
+
+@font-face {
+
+    font-family: "Morabba";
+    src: local("Morabba"), url("/public/fonts/Morabba/woff2/Morabba-Medium.woff2") format("woff2");
+    font-display: swap;
+
+}
+
+@font-face {
+
+    font-family: "Morabba-Light";
+    src: local("Morabba-Light"), url("/public/fonts/Morabba/woff2/Morabba-Light.woff2") format("woff2");
+    font-display: swap;
+
+}
+
+@font-face {
+
+    font-family: "Morabba-Bold";
+    src: local("Morabba-Bold"), url("/public/fonts/Morabba/woff2/Morabba-Bold.woff2") format("woff2");
+
+}
+
+@custom-variant child (& > *) ;
+@custom-variant grandchild (& > * > *) ;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+
+    --color-brown-900: #634832;
+    --color-brown-600: #967259;
+    --color-brown-300: #DBC1AC;
+    --color-brown-100: #ECE0D1;
+    --color-light: #F3F4F6;
+
+    --shadow-normal: 0px 1px 10px rgba(0, 0, 0, 0.05) ;
+
+    --radius-4xl: 2rem;
+
+    --font-Dana: "Dana" , sans-serif;
+    --font-Dana-Medium: "Dana-Medium" , sans-serif;
+    --font-Dana-DemiBold: "Dana-DemiBold" , sans-serif;
+    --font-Morabba: "Morabba" , sans-serif;
+    --font-Moraba-Light: "Morabba-Light" , sans-serif;
+    --font-Moraba-Bold: "Morabba-Bold" , sans-serif;
+
+    --text-xxs: 10px;
+
+    --tracking-thightest: -0/065rem;
+
+    --spacing-30 : 7.5rem;
+
+    --breakpoint-xs : 30rem;
+    --breakpoint-us: 24.375rem;
+
+
+}
+
+:root{
+    --part-color: #3F3F46;
+    --logo-color: #D1D5DB;
+}
+
+.dark{
+    --part-color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #27272A;
+}
+::-webkit-scrollbar-thumb {
+    background: #0D9488;
+    border-radius: 9999px;
+
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #10B981;
+    border-radius: 9999px;
+}
+
+.my-scroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+.my-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.my-scroll::-webkit-scrollbar-thumb {
+    background: #0D9488;
+    border-radius: 9999px;
+
+}
+
+.dark .my-scroll::-webkit-scrollbar-thumb {
+    background: #10B981;
+    border-radius: 9999px;
+}
+
+.menu-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.hidden-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.title{
+    @apply w-full flex flex-row justify-between items-center mt-8
+}
+
+.big-title{
+    @apply font-Morabba text-2xl md:text-4xl lg:text-5xl text-zinc-700 dark:text-white leading-7 xs:leading-9 md:leading-12
+}
+
+.small-title{
+    @apply font-Moraba-Light text-lg md:text-2xl lg:text-3xl text-zinc-700 dark:text-white leading-7 xs:leading-9 md:leading-12
+}
+
+.all{
+    @apply flex flex-row items-center gap-0.5 md:gap-1
+}
+
+.all-products{
+    @apply font-Dana text-sm xs:text-lg lg:text-xl text-orange-300 tracking-thightest
+}
+
+.hide{
+    @apply hidden sm:inline-block
+}
+
+.arrow-left{
+    @apply w-4 h-4 text-orange-300
+}
+
+.products{
+    @apply w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 mt-5 md:mt-12 child:bg-white dark:child:bg-zinc-700 child:transition-all child:duration-500 child:shadow-normal child:rounded-2xl
+    child:p-2 sm:child:p-3 xl:child:p-5
+}
+
+.product-box{
+    @apply relative
+}
+
+.description{
+    @apply font-Dana-Medium text-sm xl:text-lg text-zinc-700 dark:text-white leading-7 mt-2 sm:mt-3 xl:mt-5 line-clamp-2
+}
+
+.price{
+    @apply w-full flex flex-row items-center mt-1.5 sm:mt-2.5 gap-2 sm:gap-1.5 xl:gap-2.5
+}
+
+.main-price{
+    @apply font-Dana-DemiBold text-sm xl:text-xl text-right text-teal-600 dark:text-emerald-500 line-clamp-1
+}
+
+.toman{
+    @apply font-Dana sm:text-xxs xl:text-xs tracking-thightest
+}
+
+.shopping-cart{
+    @apply flex justify-center items-center w-5.5 h-5.5 sm:w-8 sm:h-8 xl:w-9 xl:h-9 rounded-full bg-gray-100 dark:bg-zinc-800 hover:bg-teal-600 dark:hover:bg-emerald-500 hover:text-white
+    transition-all duration-300
+}
+
+.shopping-cart:hover>svg{
+    color: white;
+}
+
+.shopping-cart>svg{
+    @apply w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 xl:w-5.5 xl:h-5.5 text-gray-400
+}
+
+.arrows>svg{
+    @apply w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 xl:w-6 xl:h-6 text-gray-400
+}
+
+.arrows:hover>svg{
+    @apply w-6 h-6 text-teal-600 dark:text-emerald-500
+}
+
+.star{
+    @apply w-3.5 h-3.5 xl:w-6 xl:h-6 text-yellow-400
+}
+
+.unavailable{
+    @apply font-Dana text-sm xl:text-xl text-red-400 mt-1.5 sm:mt-2.5 lg:leading-5 xl:leading-7
+}
+
+.off{
+    @apply w-10 h-5 xl:w-13.5 xl:h-7.5 rounded-full bg-orange-300 absolute flex items-center justify-center font-Dana-DemiBold text-xs lg:text-sm xl:text-base dark:text-zinc-700 text-white top-2 right-2 sm:top-3 sm:right-3 xl:top-6 xl:right-6 pt-1 transition-all duration-300
+}
+
+.off-price{
+    @apply font-Dana text-xs sm:text-sm text-gray-400 relative
+}
+
+.off-price::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #EF4444;
+}
+
+.bg-category-1{
+    @apply relative
+}
+
+.bg-category-1::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.6) 33.85%, rgba(243, 244, 246, 0.15) 100%)center center no-repeat ;
+    background-size: cover;
+    @apply h-35.5 xs:h-44 sm:h-55 md:h-30 lg:h-45 xl:h-62
+}
+
+.bg-category-2{
+    @apply relative
+}
+
+.bg-category-2::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.6) 33.85%, rgba(243, 244, 246, 0.15) 100%) center center no-repeat;
+    background-size: cover;
+    @apply h-35.5 xs:h-44 sm:h-55 md:h-30 lg:h-45 xl:h-62
+}
+
+.blog{
+    @apply relative rounded-2xl transition-all duration-250
+}
+
+.blog::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    @apply bg-linear-to-r from-orange-200/70 to-orange-300/70 rounded-2xl rounded-bl-4xl opacity-0 transition-all duration-250
+}
+
+.blog-hover:hover>.blog::after{
+
+    @apply opacity-100
+
+}
+
+.blog-hover:hover>.blog>.logo-type{
+    @apply opacity-100
+}
+
+
+.dark .svg-color{
+    color: white;
+}
+
+.footer-logo:hover{
+    --logo-color: #FDBA74;
+}
